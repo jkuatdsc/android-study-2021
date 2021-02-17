@@ -17,7 +17,17 @@ class DisplayFragment : Fragment() {
         fun newInstance() = DisplayFragment()
     }
 
+    /**
+     * A view model is a class connected to a fragment or activity that contains all the logic
+     * and data interactions.
+     * Why is this necessary?
+     */
     private lateinit var viewModel: DisplayViewModel
+
+    /**
+     * View binding is whereby android generates a class containing all the views at compile time.
+     * Why is this necessary?
+     */
     private lateinit var binding:DisplayFragmentBinding
 
     override fun onCreateView(

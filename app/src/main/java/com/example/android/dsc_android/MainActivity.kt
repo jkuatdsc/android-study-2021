@@ -7,6 +7,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 
 class MainActivity : AppCompatActivity() {
+    /**
+     * A navController is the class that is controls navigation from the nav_host_fragment to
+     * other fragments connected to it in the graph in the  nav_host.xml file.
+     */
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
