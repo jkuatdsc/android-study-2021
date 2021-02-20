@@ -21,6 +21,8 @@
         tools:layout="@layout/input_fragment" >
         <action
             android:id="@+id/action_inputFragment_to_displayFragment"
-            app:destination="@id/displayFragment" />
+            app:destination="@id/displayFragment"
+            app:popUpTo="@id/displayFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
