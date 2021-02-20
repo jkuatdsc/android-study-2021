@@ -30,4 +30,7 @@ interface StudentDao {
 
     @Query("SELECT * from student_table WHERE id LIKE :studentId")
     fun getStudentDataWithId(studentId:Long):StudentData
+
+    @Query("SELECT * from student_table")
+    fun getAllStudents():List<StudentData>
 }

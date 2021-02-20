@@ -8,6 +8,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.android.dsc_android.data.StudentData
 import junit.framework.Assert.assertEquals
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -20,17 +21,17 @@ class StudentDatabaseTest {
     @Before
     fun createDb() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
-        database = Room.databaseBuilder(context, StudentDatabase::class.java, "student_db")
+        database = Room.inMemoryDatabaseBuilder(context, StudentDatabase::class.java)
             .allowMainThreadQueries().build()
         dao = database.dao()
     }
     @Test
     fun insertAndGetStudentData(){
-        val student = StudentData(name = "Raphael",course = "Computer Science")
+        val student = StudentData(id = 1, name = "Raphael",course = "Computer Science")
         dao.insert(student)
-        val student2 = dao.getStudentDataWithId(student.id)
+        val studentList = runBlocking { dao.getAllStudents() }
 
-        assertEquals(student,student2)
+        assert(studentList.contains(student))
     }
     @After
     fun closeDb(){

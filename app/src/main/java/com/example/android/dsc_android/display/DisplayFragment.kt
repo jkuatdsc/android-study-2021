@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.android.dsc_android.R
 import com.example.android.dsc_android.data.StudentDao
@@ -44,7 +45,9 @@ class DisplayFragment : Fragment() {
             ViewModelProvider(this, DisplayViewModelFactory(dao)).get(DisplayViewModel::class.java)
 
         val adapter = StudentsAdapter()
-        adapter.submitList(viewModel.studentList.value)
+        viewModel.studentList.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
         binding.recyclerView.adapter = adapter
 
         binding.fab.setOnClickListener {

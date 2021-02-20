@@ -9,8 +9,4 @@ import com.example.android.dsc_android.data.StudentData
 
 class DisplayViewModel(dao: StudentDao) : ViewModel() {
     val studentList = dao.observeAllStudentData()
-
-    init {
-       Log.i("DisplayViewModel", "the students in the db are ${studentList.value?.get(0)?.name}")
-    }
 }
