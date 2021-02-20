@@ -36,7 +36,7 @@ class StudentsAdapter() : ListAdapter<StudentData, StudentsAdapter.ViewHolder>(D
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ListItemStudentBinding.inflate(layoutInflater)
+        val binding = ListItemStudentBinding.inflate(layoutInflater,parent,false)
         return ViewHolder(binding)
     }
 
