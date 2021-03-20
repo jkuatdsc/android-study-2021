@@ -10,7 +10,7 @@ import java.util.*
 class DataInsertingWorker(appContext: Context, workerParameters: WorkerParameters) :
     CoroutineWorker(appContext, workerParameters) {
     companion object{
-        const val WORKER_NAME = "HourlyWorker"
+        const val WORKER_NAME = "DataInsertingWorker"
     }
     override suspend fun doWork(): Result {
         val database = StudentDatabase.initializeDatabase(applicationContext)
