@@ -1,15 +1,18 @@
 package com.dscjkuat.hiltcode.domain.repository
 
-import com.dscjkuat.hiltcode.domain.models.PostResponse
-import com.dscjkuat.hiltcode.domain.models.UsersResponse
+import com.dscjkuat.hiltcode.domain.models.Post
+import com.dscjkuat.hiltcode.domain.models.User
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
+import kotlinx.coroutines.flow.Flow
 
 interface HiltRepository {
-    suspend fun getUsers( limit: Int) : UsersResponse
-    suspend fun getUsersPosts(id: String, limit: Int) : PostResponse
+    val users: Flow<List<User>>
+    val posts: Flow<List<Post>>
+    suspend fun getUsers(limit: Int): Unit
+    suspend fun getUsersPosts(id: String, limit: Int): Unit
 }
 
 @Module
@@ -17,5 +20,5 @@ interface HiltRepository {
 abstract class RepositoryBinding {
 
     @Binds
-  abstract fun provideRepository(impl: HiltRepositoryImpl): HiltRepository
+    abstract fun provideRepository(impl: HiltRepositoryImpl): HiltRepository
 }
