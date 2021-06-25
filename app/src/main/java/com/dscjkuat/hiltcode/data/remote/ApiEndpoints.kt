@@ -11,5 +11,5 @@ interface ApiEndpoints {
     suspend fun getUser(@Query("limit") limit: Int): UsersResponse
 
     @GET("/data/api/user/{id}/post")
-    suspend fun getUserPosts(@Path("id") id:String, @Query("limit") limit: Int): PostResponse
+    suspend fun getUserPosts(@Path("id") id: String, @Query("limit") limit: Int): PostResponse
 }
