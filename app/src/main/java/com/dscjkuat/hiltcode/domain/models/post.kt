@@ -1,5 +1,8 @@
 package com.dscjkuat.hiltcode.domain.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 data class PostResponse(
     val `data`: List<Post>,
     val limit: Int,
@@ -8,22 +11,15 @@ data class PostResponse(
     val total: Int
 )
 
+@Entity
 data class Post(
-    val id: String,
+    @PrimaryKey val id: String,
     val image: String,
     val likes: Int,
-    val link: Any,
-    val owner: Owner,
+    val link: String?,
+    val owner: User,
     val publishDate: String,
     val tags: List<String>,
     val text: String
 )
 
-data class Owner(
-    val email: String,
-    val firstName: String,
-    val id: String,
-    val lastName: String,
-    val picture: String,
-    val title: String
-)
