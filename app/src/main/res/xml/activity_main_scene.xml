@@ -6,15 +6,17 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="1000">
+        motion:duration="500">
        <KeyFrameSet>
            <KeyPosition
-               motion:motionTarget="@+id/fab"
                motion:framePosition="50"
                motion:keyPositionType="pathRelative"
+               motion:motionTarget="@+id/fab"
                motion:percentX="0.5"
                motion:percentY="0.5" />
        </KeyFrameSet>
+        <OnClick motion:targetId="@+id/fab" motion:clickAction="toggle"  />
+        <OnSwipe motion:dragDirection="dragDown" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -22,25 +24,25 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:layout_height="wrap_content"
             android:id="@+id/fab"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_marginStart="16dp" />
-        <Constraint
-            android:id="@+id/imageView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
         <Constraint
             android:id="@+id/imageView"
-            motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="300dp"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 </MotionScene>
