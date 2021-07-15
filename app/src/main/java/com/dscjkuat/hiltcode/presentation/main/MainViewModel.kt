@@ -1,5 +1,6 @@
 package com.dscjkuat.hiltcode.presentation.main
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dscjkuat.hiltcode.domain.repository.HiltRepository
