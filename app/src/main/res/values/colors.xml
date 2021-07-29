@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Light colors -->
+    <color name="light_primary">#af601a</color>
+    <color name="light_accent">#e68e48</color>
+    <color name="light_variant">#7a3500</color>
+    <color name="text_color">#ffffff</color>
+
+    <!-- Dark colors -->
+    <color name="dark_primary">#212f3d</color>
+    <color name="dark_accent">#4a5868</color>
+    <color name="dark_variant">#000517</color>
+
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

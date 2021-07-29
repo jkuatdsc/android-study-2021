@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.dscjkuat.hiltcode.R
 import com.dscjkuat.hiltcode.databinding.DataItemBinding
 import com.dscjkuat.hiltcode.domain.models.User
 
@@ -28,11 +30,13 @@ class UserListAdapter(val data: List<User>) : Adapter<UserListAdapter.UserViewHo
 
 
         with(holder.binding) {
-            title.text = data.title
-            firstName.text = data.firstName
-            lastName.text = data.lastName
             val context = root.context
-            Glide.with(context).load(data.picture).into(picture)
+            name.text = context.getString(R.string.username, data.title, data.firstName, data.lastName)
+            email.text = data.email
+            Glide.with(context)
+                .load(data.picture)
+                .transform(RoundedCorners(1000))
+                .into(picture)
         }
     }
 
